@@ -297,6 +297,7 @@ class EThreeBackupTest {
         eThreeWithPass.cleanup()
         val waiterTwo = CountDownLatch(1)
         var restoreSuccessful = false
+        println("before restorePrivateKey")
         eThreeWithPass.restorePrivateKey(password, object : EThree.OnCompleteListener {
 
             override fun onSuccess() {
@@ -311,6 +312,7 @@ class EThreeBackupTest {
             }
         })
         waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
+        println("after restorePrivateKey")
         assertTrue(restoreSuccessful)
 
         TestUtils.pause()
