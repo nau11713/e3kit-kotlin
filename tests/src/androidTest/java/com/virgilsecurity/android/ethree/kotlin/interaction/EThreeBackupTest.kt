@@ -300,11 +300,13 @@ class EThreeBackupTest {
         eThreeWithPass.restorePrivateKey(password, object : EThree.OnCompleteListener {
 
             override fun onSuccess() {
+                println("onSuccess")
                 waiterTwo.countDown()
                 restoreSuccessful = true
             }
 
             override fun onError(throwable: Throwable) {
+                println("throwable $throwable")
                 fail(throwable.message)
             }
         })
