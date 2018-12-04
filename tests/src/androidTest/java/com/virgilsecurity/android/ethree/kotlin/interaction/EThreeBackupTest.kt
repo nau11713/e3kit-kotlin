@@ -298,6 +298,7 @@ class EThreeBackupTest {
         val waiterTwo = CountDownLatch(1)
         var restoreSuccessful = false
         println("before restorePrivateKey")
+        val timeStamp = System.currentTimeMillis() / 1000
         eThreeWithPass.restorePrivateKey(password, object : EThree.OnCompleteListener {
 
             override fun onSuccess() {
@@ -313,7 +314,9 @@ class EThreeBackupTest {
         })
         waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         println("after restorePrivateKey")
-        assertTrue("Private key should be restored", restoreSuccessful)
+        println("Time elapsed for restore: ${(System.currentTimeMillis() / 1000) - timeStamp}")
+        assertTrue("Private key should be restored. Time elapsed for restore: " +
+                   "${(System.currentTimeMillis() / 1000) - timeStamp}", restoreSuccessful)
 
         TestUtils.pause()
 
