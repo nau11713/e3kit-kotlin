@@ -130,7 +130,7 @@ class EThreeAuthTest {
 
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree!!
     }
@@ -150,7 +150,7 @@ class EThreeAuthTest {
             }
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree
     }
@@ -235,7 +235,7 @@ class EThreeAuthTest {
                 assertTrue(throwable is RegistrationException)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
     }
 
     // STE-Auth-11
@@ -254,7 +254,7 @@ class EThreeAuthTest {
                 assertTrue(throwable is PrivateKeyExistsException)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
     }
 
     // STE-Auth-12
@@ -272,7 +272,7 @@ class EThreeAuthTest {
                 assertTrue(throwable is CardNotFoundException)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
     }
 
     // STE-Auth-13
@@ -292,7 +292,7 @@ class EThreeAuthTest {
                 assertTrue(throwable is PrivateKeyExistsException)
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
     }
 
     // STE-Auth-14
@@ -312,7 +312,7 @@ class EThreeAuthTest {
                 fail(throwable.message)
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         assertTrue(cardManager.searchCards(identity).last().previousCardId != null)
 

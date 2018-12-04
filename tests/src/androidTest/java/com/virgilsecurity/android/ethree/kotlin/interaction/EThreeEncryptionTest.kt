@@ -109,7 +109,7 @@ class EThreeEncryptionTest {
 
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree!!
     }
@@ -129,7 +129,7 @@ class EThreeEncryptionTest {
             }
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree
     }
@@ -240,7 +240,7 @@ class EThreeEncryptionTest {
                                         fail(throwable.message)
                                     }
                                 })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(eThreeKeys.size == 2)
 
         var failedEncrypt = false
@@ -271,7 +271,7 @@ class EThreeEncryptionTest {
                                         fail(throwable.message)
                                     }
                                 })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         assertTrue(eThreeKeys.size == 2)
         val encryptedForOne = eThree.encrypt(RAW_TEXT, listOf(eThreeKeys[1]))
@@ -333,7 +333,7 @@ class EThreeEncryptionTest {
 //
 //        })
 //
-//        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+//        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 //
 //        val keys = TestConfig.virgilCrypto.generateKeys()
 //
@@ -368,7 +368,7 @@ class EThreeEncryptionTest {
 
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         val encryptedText = eThreeTwo!!.encrypt(RAW_TEXT)
         val decryptedText = eThreeTwo!!.decrypt(encryptedText)

@@ -125,7 +125,7 @@ class EThreeBackupTest {
 
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree!!
     }
@@ -145,7 +145,7 @@ class EThreeBackupTest {
             }
         })
 
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         return eThree
     }
@@ -216,7 +216,7 @@ class EThreeBackupTest {
                 waiter.countDown()
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(failedToBackup)
     }
 
@@ -240,7 +240,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(successfullyBackuped)
 
         TestUtils.pause()
@@ -267,7 +267,7 @@ class EThreeBackupTest {
                 waiterTwo.countDown()
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(failedToBackup)
     }
 
@@ -290,7 +290,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         TestUtils.pause()
 
@@ -308,7 +308,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(restoreSuccessful)
 
         TestUtils.pause()
@@ -336,7 +336,7 @@ class EThreeBackupTest {
                 waiterThree.countDown()
             }
         })
-        waiterThree.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterThree.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(failedToRestore)
     }
 
@@ -360,7 +360,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         TestUtils.pause()
 
@@ -376,7 +376,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiterOne.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterOne.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(passwordChanged)
 
         TestUtils.pause()
@@ -397,7 +397,7 @@ class EThreeBackupTest {
                 waiterTwo.countDown()
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(failedWithOldPassword)
 
         TestUtils.pause()
@@ -415,7 +415,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiterThree.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterThree.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(successWithNewPassword)
     }
 
@@ -441,7 +441,7 @@ class EThreeBackupTest {
                 waiter.countDown()
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(failedToReset)
 
         TestUtils.pause()
@@ -468,7 +468,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         TestUtils.pause()
 
@@ -484,7 +484,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue(successfulKeyReset)
 
         TestUtils.pause()
@@ -511,7 +511,7 @@ class EThreeBackupTest {
                 fail(throwable.message)
             }
         })
-        waiter.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiter.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
 
         TestUtils.pause()
 
@@ -529,7 +529,7 @@ class EThreeBackupTest {
                 waiterTwo.countDown()
             }
         })
-        waiterTwo.await(TestUtils.THROTTLE_TIMEOUT, TimeUnit.SECONDS)
+        waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         assertTrue("Key reset failed with wrong error", failedKeyReset)
     }
 
