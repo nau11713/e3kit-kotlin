@@ -303,8 +303,8 @@ class EThreeBackupTest {
 
             override fun onSuccess() {
                 println("onSuccess")
-                waiterTwo.countDown()
                 restoreSuccessful = true
+                waiterTwo.countDown()
             }
 
             override fun onError(throwable: Throwable) {
