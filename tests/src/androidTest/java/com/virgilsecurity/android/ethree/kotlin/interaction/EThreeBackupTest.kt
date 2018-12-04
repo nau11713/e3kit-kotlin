@@ -313,14 +313,14 @@ class EThreeBackupTest {
         })
         waiterTwo.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
         println("after restorePrivateKey")
-        assertTrue(restoreSuccessful)
+        assertTrue("Private key should be restored", restoreSuccessful)
 
         TestUtils.pause()
 
         val syncKeyStorage = initSyncKeyStorage(identity, password)
-        assertTrue(syncKeyStorage.exists(identity + TestConfig.KEYKNOX_KEY_POSTFIX))
+        assertTrue("Key storage should contain keynox key", syncKeyStorage.exists(identity + TestConfig.KEYKNOX_KEY_POSTFIX))
         val retrievedKey = syncKeyStorage.retrieve(identity + TestConfig.KEYKNOX_KEY_POSTFIX)
-        assertEquals(TestConfig.virgilCrypto.importPrivateKey(keyStorage.load(identity).value),
+        assertEquals("Keystorage and SyncKeyStorage should contain the same key",TestConfig.virgilCrypto.importPrivateKey(keyStorage.load(identity).value),
                      TestConfig.virgilCrypto.importPrivateKey(retrievedKey.value))
 
         TestUtils.pause()
@@ -330,7 +330,7 @@ class EThreeBackupTest {
         eThreeWithPass.restorePrivateKey(password, object : EThree.OnCompleteListener {
 
             override fun onSuccess() {
-                fail("Illegal state")
+                fail("Restore private key success, but should fail")
             }
 
             override fun onError(throwable: Throwable) {
@@ -341,7 +341,7 @@ class EThreeBackupTest {
             }
         })
         waiterThree.await(TestUtils.REQUEST_TIMEOUT, TimeUnit.SECONDS)
-        assertTrue(failedToRestore)
+        assertTrue("Restore private key should fail", failedToRestore)
     }
 
     // STE-17
